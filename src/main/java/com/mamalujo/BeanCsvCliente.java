@@ -12,17 +12,19 @@ public class BeanCsvCliente{
 	public String cpf;
 	public String condutor;
 	public String endereco;
+	public String nomearquivo;
 	
 	public BeanCsvCliente() {
 		
 	}
 	
-	public BeanCsvCliente(String nome, String cpf, String condutor, String endereco) {
+	public BeanCsvCliente(String nome, String cpf, String condutor, String endereco, String nomearquivo) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.condutor = condutor;
 		this.endereco = endereco;
+		this.nomearquivo = nomearquivo;
 		
 	}	
 	
@@ -55,5 +57,11 @@ public class BeanCsvCliente{
 	public void setEndereco(String endereco){
 		this.endereco = endereco;
 	}
+	public String getNomearquivo(){
+		return nomearquivo;
+	}
 	
+	public void setNomearquivo(String nomearquivo){
+		this.nomearquivo = nomearquivo;
+	}
 }

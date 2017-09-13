@@ -17,12 +17,13 @@ public class BeanCsvAuto{
 	public String seguradora;
 	public String franquia;
 	public String carroreserva;
+	public String nomearquivo;
 	
 	public BeanCsvAuto() {
 		
 	}
 	
-	public BeanCsvAuto(String nome, String veiculo, String ano, String placa, String vigencia, String seguradora, String franquia, String carroreserva) {
+	public BeanCsvAuto(String nome, String veiculo, String ano, String placa, String vigencia, String seguradora, String franquia, String carroreserva, String nomearquivo) {
 		super();
 		this.nome = nome;
 		this.veiculo = veiculo;
@@ -32,6 +33,7 @@ public class BeanCsvAuto{
 		this.seguradora = seguradora;
 		this.franquia = franquia;
 		this.carroreserva = carroreserva;
+		this.nomearquivo = nomearquivo;
 		
 	}	
 	
@@ -96,4 +98,11 @@ public class BeanCsvAuto{
 	public void setCarroReserva(String carroreserva){
 		this.carroreserva = carroreserva;
 	}	
+	public String getNomearquivo(){
+		return nomearquivo;
+	}
+	
+	public void setNomearquivo(String nomearquivo){
+		this.nomearquivo = nomearquivo;
+	}
 }

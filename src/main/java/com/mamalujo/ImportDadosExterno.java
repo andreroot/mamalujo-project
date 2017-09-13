@@ -21,16 +21,17 @@ public class ImportDadosExterno{
 	
 	private Scanner scanner;
 	
-	String caminho, nome, cpf , condutor, endereco;
-	String veiculo, ano, placa, vigencia, seguradora, franquia, carroreserva;
+	String caminho, nome, cpf , condutor, endereco, nomefilecli;
+	String veiculo, ano, placa, vigencia, seguradora, franquia, carroreserva, nomefileaut;
 	BeanCsvCliente beancli;
 	BeanCsvAuto beanauto;
 	
 	public void lerArquivo() {
 		
 		try
-			{
-				File dir = new File("/home/andre/Documentos/cloud/teste/origem_csv");
+			{	
+			caminho = "/home/andre/Documentos/cloud/teste/origem_csv";
+				File dir = new File(caminho);
 				File arquivos[];
 				arquivos = dir.listFiles();	
 				ExportData export = new ExportData();
@@ -39,9 +40,13 @@ public class ImportDadosExterno{
 				    String sfileinfo = arquivos[i].toString();
 				    System.out.println(sfileinfo);
 				    if(sfileinfo.contains("C.C")) {
+				    	//String nmfile = sfileinfo.substring(sfileinfo.indexOf("C.C"), sfileinfo.length());
+				    	//System.out.println(nmfile);
 				    	resultExcelCliente(sfileinfo);
 				    	export.ExportDataCliente(beancli);
 				    }else if(sfileinfo.contains("C.V")){
+				    	//String nmfile = sfileinfo.substring(sfileinfo.indexOf("C.V"), sfileinfo.length());
+				    	//System.out.println(nmfile);
 				    	resultExcelAuto(sfileinfo);
 				    	export.ExportDataAuto(beanauto);
 				    }
@@ -87,7 +92,8 @@ public class ImportDadosExterno{
 	     cpf = cpfxls.getContents();
 	     condutor = condutorxls.getContents();
 	     endereco = endereco_axls.getContents()+" "+endereco_bxls.getContents()+" "+endereco_cxls.getContents();
-	     beancli = new BeanCsvCliente(nome, cpf, condutor, endereco);
+	     nomefilecli = arquivo.substring(arquivo.indexOf("C.C"), arquivo.length());
+	     beancli = new BeanCsvCliente(nome, cpf, condutor, endereco, nomefilecli);
 	     
 	     return beancli;
 	     
@@ -115,8 +121,8 @@ public class ImportDadosExterno{
 	     seguradora = seguradoraxls.getContents();
 	     franquia = franquiaxls.getContents();
 	     carroreserva = carroreservaxls.getContents();
-	     
-	     beanauto = new BeanCsvAuto(nome, veiculo, ano, placa, vigencia, seguradora, franquia, carroreserva);
+	     nomefileaut = arquivo.substring(arquivo.indexOf("C.V"), arquivo.length());
+	     beanauto = new BeanCsvAuto(nome, veiculo, ano, placa, vigencia, seguradora, franquia, carroreserva, nomefileaut);
 	     
 	     return beanauto;
 	     
